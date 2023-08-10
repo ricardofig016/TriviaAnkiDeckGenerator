@@ -13,6 +13,8 @@ try:
     while len(question) < 30000:
         driver.get(url)
 
+        time.sleep(0.1)
+
         soup = BeautifulSoup(driver.page_source, "html.parser")
         cards = soup.find_all("md-card-content")
         subjects = soup.find_all(
@@ -21,9 +23,9 @@ try:
         )
         for i in range(0, len(subjects), 2):
             q = [
-                subjects[i].get_text(),
                 cards[i].get_text(),
                 cards[i + 1].get_text(),
+                subjects[i].get_text(),
             ]
             question.add(tuple(q))
 
@@ -37,13 +39,12 @@ driver.quit()
 guess_answer_html = """<p><b>{{Answer}}</b></p>"""
 
 model = genanki.Model(
-    model_id=20983477,
+    model_id=2984352093,
     name="Trivia Question",
-    fields=[{"name": "Subject"}, {"name": "Question"}, {"name": "Answer"}],
+    fields=[{"name": "Question"}, {"name": "Answer"}, {"name": "Subject"}],
     templates=[
         {
             "name": "Trivia",
-            "qfmt": "{{Question}}",
             "qfmt": '<p class="light">{{Subject}}</p>  <p><b>{{Question}}</b></p>',
             "afmt": '{{FrontSide}} <hr id="answer"> ' + guess_answer_html,
         }
@@ -72,11 +73,11 @@ model = genanki.Model(
         """,
 )
 
-deck = genanki.Deck(29348752, "Trivia Deck")
+deck = genanki.Deck(29348752, "Trivia")
 
 for q in question:
     note = genanki.Note(model=model, fields=[q[0], q[1], q[2]])
     deck.add_note(note)
 
 package = genanki.Package(deck)
-package.write_to_file("my_trivia_deck.apkg")
+package.write_to_file("trivia28k.apkg")
