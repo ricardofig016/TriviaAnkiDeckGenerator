@@ -1,2 +1,10 @@
-<h1>TriviaAnkiDeckGenerator</h1>
-generate a trivia deck on anki from a question-answer database
+# TriviaAnkiDeckGenerator
+
+Generate a trivia deck for Anki with questions from https://www.randomtriviagenerator.com/
+
+## Running
+
+Linux terminal command:
+'''
+python3 main.py
+'''
