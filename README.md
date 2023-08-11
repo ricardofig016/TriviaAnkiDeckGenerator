@@ -2,7 +2,7 @@
 
 ## Description
 
-Generate a trivia deck for Anki with all **28318** questions from  
+Generate a trivia deck for Anki from all **28318** questions from  
 [Random Trivia Generator](https://www.randomtriviagenerator.com/)
 
 ## Generation
