@@ -7,7 +7,9 @@ import genanki
 
 url = "https://www.randomtriviagenerator.com/"
 driver = webdriver.Chrome()
-question = set()
+question = []
+subject = []
+
 
 try:
     while len(question) < 30000:
@@ -22,12 +24,10 @@ try:
             class_="Card_category-text__1i-2p col-center padding-sm padding-left-none padding-right-none xl layout-column flex",
         )
         for i in range(0, len(subjects), 2):
-            q = [
-                cards[i].get_text(),
-                cards[i + 1].get_text(),
-                subjects[i].get_text(),
-            ]
-            question.add(tuple(q))
+            q = [cards[i].get_text(), cards[i + 1].get_text()]
+            if not q in question:
+                question.append(tuple(q))
+                subject.append(subjects[i].get_text())
 
         print(f"questions scraped: {len(question)}")
 
@@ -75,9 +75,11 @@ model = genanki.Model(
 
 deck = genanki.Deck(29348752, "Trivia")
 
-for q in question:
-    note = genanki.Note(model=model, fields=[q[0], q[1], q[2]])
+for i in range(len(question)):
+    note = genanki.Note(
+        model=model, fields=[question[i][0], question[i][1], subject[i]]
+    )
     deck.add_note(note)
 
 package = genanki.Package(deck)
-package.write_to_file("trivia28k.apkg")
+package.write_to_file("trivia_v2.apkg")
