@@ -18,9 +18,9 @@ python3 main.py
 ### Apkg file
 
 Alternatively, you may want to use an already populated apkg file.  
-Open Anki and go to _File_ -> _Import_ and choose _trivia28k.apkg_
+Open Anki and go to _File_ -> _Import_ and choose _trivia_v2.apkg_
 
-- It is worth noting that this file only contains **27814** cards
+- This file was generated using the python script and contains **27814** cards
 
 ## Credits
 
