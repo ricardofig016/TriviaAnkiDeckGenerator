@@ -80,9 +80,7 @@ model = genanki.Model(
 deck = genanki.Deck(29348752, "Trivia")
 
 for i in range(len(question)):
-    note = genanki.Note(
-        model=model, fields=[question[i][0], question[i][1], subject[i]]
-    )
+    note = genanki.Note(model=model, fields=[question[i], answer[i], subject[i]])
     deck.add_note(note)
 
 package = genanki.Package(deck)
