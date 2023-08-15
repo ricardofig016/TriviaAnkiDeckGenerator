@@ -8,6 +8,7 @@ import genanki
 url = "https://www.randomtriviagenerator.com/"
 driver = webdriver.Chrome()
 question = []
+answer = []
 subject = []
 
 
@@ -24,10 +25,13 @@ try:
             class_="Card_category-text__1i-2p col-center padding-sm padding-left-none padding-right-none xl layout-column flex",
         )
         for i in range(0, len(subjects), 2):
-            q = [cards[i].get_text(), cards[i + 1].get_text()]
+            q = cards[i].get_text()
+            a = cards[i + 1].get_text()
+            s = subjects[i].get_text()
             if not q in question:
-                question.append(tuple(q))
-                subject.append(subjects[i].get_text())
+                question.append(q)
+                answer.append(a)
+                subject.append(s)
 
         print(f"questions scraped: {len(question)}")
 
