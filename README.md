@@ -20,7 +20,7 @@ python3 main.py
 Alternatively, you may want to use an already populated apkg file.  
 Open Anki and go to _File_ -> _Import_ and choose _trivia_v2.apkg_
 
-- This file was generated using the python script and contains **27814** cards
+- This file was generated using the python script and contains **26016** cards
 
 ## Credits
 
