@@ -22,6 +22,12 @@ Open Anki and go to _File_ -> _Import_ and choose _trivia_v2.apkg_
 
 - This file was generated using the python script and contains **26016** cards
 
+### AnkiWeb shared deck
+
+You can also import the deck from AnkiWeb.
+
+- [AnkiWeb](https://ankiweb.net/shared/info/331090551)
+
 ## Credits
 
 - [Github](https://github.com/ricardofig016)
